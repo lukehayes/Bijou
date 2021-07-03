@@ -1,0 +1,17 @@
+{
+    "name": "lukehayes/mvp",
+    "authors": [
+        {
+            "name": "lukehayes"
+        }
+    ],
+    "require": {},
+
+    "autoload" : 
+    {
+        "psr-4":
+        {
+            "MVP\\" : "src/"
+        }
+    }
+}
