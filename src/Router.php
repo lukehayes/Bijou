@@ -20,10 +20,31 @@ class Router
     {
         $request = new Request();
 
-        if($request->path == $path && ! $this->routeFound)
+
+        if(!$this->routeFound)
         {
-            $fn($request);
-            $this->routeFound = true;
+            if($request->path == $path)
+            {
+                $fn($request);
+                $this->routeFound = true;
+                return;
+            }
         }
+
+        
+
+        //if($request->path == $path && ! $this->routeFound)
+        //{
+            //$fn($request);
+            //$this->routeFound = true;
+            //return;
+        //} else
+        //{
+            //if($request->path != $path && ! $this->routeFound)
+            //{
+                //throw new \Exception("An error occurred.");
+                //$this->routeFound = true;
+            //}
+        //}
     }
 }
