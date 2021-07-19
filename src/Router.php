@@ -47,4 +47,30 @@ class Router
             //}
         //}
     }
+
+    /**
+     * Define a GET route.
+     *
+     * @param string $path
+     * @param callable $fn
+     *
+     * @return void
+     */
+    public function post(string $path, callable $fn)
+    {
+        $request = new Request();
+
+        if(!$this->routeFound && $request->isPost())
+        {
+            die("Running Post...");
+            //if($request->path == $path)
+            //{
+                //$fn($request);
+                //$this->routeFound = true;
+                //return;
+            //}
+        }
+    }
+
+
 }
