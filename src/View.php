@@ -9,11 +9,14 @@ class View
 {
     public $templatePath = NULL;
 
+    /**
+     * An array that holds all of the page data for a particular view */
+    private $templateVars = [];
+
     public function __construct()
     {
         $this->templatePath = getcwd() ."/templates/";
     }
-
 
     /**
      * Render a template file.
