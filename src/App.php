@@ -14,9 +14,22 @@ class App
 
     private $view = NULL;
 
+    private static $instance = NULL;
+
     public function __construct()
     {
         $this->router = new Router; 
         $this->view = new View; 
+    }
+
+    public static function create() : App
+    {
+        if(is_null(self::$instance))
+        {
+            return new App;
+        }else
+        {
+            return self::$instance;
+        }
     }
 }
