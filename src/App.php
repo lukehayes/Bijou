@@ -8,12 +8,21 @@ use MVP\View;
 
 class App
 {
+    /**
+     * @var MVP\Request instance */
     private $request = NULL;
 
+    /**
+     * @var MVP\Router instance */
     private $router = NULL;
 
+    /**
+     * @var MVP\View instance */
     private $view = NULL;
 
+    /**
+     * @var MVP\App instance 
+     * @static */
     private static $instance = NULL;
 
     public function __construct()
@@ -22,6 +31,11 @@ class App
         $this->view = new View; 
     }
 
+    /**
+     * App factory creation function
+     *
+     * @return MVP\App
+     */
     public static function create() : App
     {
         if(is_null(self::$instance))
