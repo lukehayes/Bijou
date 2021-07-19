@@ -46,4 +46,9 @@ class App
             return self::$instance;
         }
     }
+
+    public function getRouter() : Router
+    {
+        return $this->router;
+    }
 }
