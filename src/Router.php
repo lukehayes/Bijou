@@ -62,15 +62,30 @@ class Router
 
         if(!$this->routeFound && $request->isPost())
         {
-            die("Running Post...");
-            //if($request->path == $path)
-            //{
-                //$fn($request);
-                //$this->routeFound = true;
-                //return;
-            //}
+            if($request->path == $path)
+            {
+                $fn($request);
+                $this->routeFound = true;
+                return;
+            }
         }
     }
 
+    /**
+     * Redirect the user to a different page.
+     *
+     * @param string $url
+     * @param callable $permenant
+     *
+     * @return void
+     */
+    public function redirect($url, $permanent = false)
+    {
+        if (headers_sent() === false)
+        {
+            header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
+        }
+        exit();
+    }
 
 }
