@@ -28,6 +28,7 @@ class App
     public function __construct()
     {
         $this->router = new Router; 
+        $this->request = new Request; 
         $this->view = new View; 
     }
 
