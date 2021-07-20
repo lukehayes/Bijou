@@ -30,26 +30,10 @@ class Router
                 return;
             }
         }
-
-        
-
-        //if($request->path == $path && ! $this->routeFound)
-        //{
-            //$fn($request);
-            //$this->routeFound = true;
-            //return;
-        //} else
-        //{
-            //if($request->path != $path && ! $this->routeFound)
-            //{
-                //throw new \Exception("An error occurred.");
-                //$this->routeFound = true;
-            //}
-        //}
     }
 
     /**
-     * Define a GET route.
+     * Define a POST route.
      *
      * @param string $path
      * @param callable $fn
