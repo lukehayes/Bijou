@@ -33,6 +33,11 @@ class Request
     {
         return $this->method == "POST" ?? false;
     }
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
+    }
 }
 
 
