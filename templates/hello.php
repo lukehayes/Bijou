@@ -6,8 +6,6 @@
 </head>
 <body>
 
-<?php echo $this->test; ?>
-
 <p>Hello!</p>
     
 </body>
