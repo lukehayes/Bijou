@@ -20,8 +20,7 @@ class Router
     {
         $request = new Request();
 
-
-        if(!$this->routeFound)
+        if(!$this->routeFound && $request->isGet())
         {
             if($request->path == $path)
             {
