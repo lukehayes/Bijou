@@ -5,7 +5,9 @@
             "name": "lukehayes"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/var-dumper": "^5.3"
+    },
 
     "autoload" : 
     {
