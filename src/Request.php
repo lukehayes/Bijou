@@ -12,6 +12,13 @@ class Request
     {
         $this->path = $_SERVER['REQUEST_URI'];
         $this->method = $_SERVER['REQUEST_METHOD'];
+
+        if(array_key_exists("QUERY_STRING", $_SERVER))
+        {
+            $this->queryString = $_SERVER["QUERY_STRING"];
+        }
+
+        dump($this->queryString);
     }
 
     /**
