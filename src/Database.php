@@ -34,6 +34,35 @@ class Database
             return false;
         }
     }
+
+
+    /**
+     * Find a specific row from a table using an ID.
+     *
+     * @param int $id.
+     *
+     * @param string $table.
+     *
+     * @return array | false.
+     */
+    public function find($id, $table)
+    {
+        if( !is_int($id) ) return false;
+        if( !is_string($table) ) return false;
+
+        $sql = "SELECT * FROM $table where id=:id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $result = $stmt->execute();
+
+        if($result)
+        {
+            return $stmt->fetchAll($this->fetchType);
+        }else
+        {
+            return false;
+        }
+    }
     
 
 }
