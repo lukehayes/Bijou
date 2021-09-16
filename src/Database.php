@@ -28,15 +28,11 @@ class Database
 
         if($result)
         {
-
             return $stmt->fetchAll($this->fetchType);
         }else
         {
             return false;
         }
-
-
-        //return $result->fetch_all();
     }
     
 
