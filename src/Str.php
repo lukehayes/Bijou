@@ -19,4 +19,17 @@ class Str
     {
         return preg_split("/$char/", $str);
     }
+
+
+    /**
+     * Convert an array to a string
+     *
+     * @param array $arr.
+     *
+     * return string.
+     */
+    static public function arrayToString($arr)
+    {
+        return implode($arr);
+    }
 }
