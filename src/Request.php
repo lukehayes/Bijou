@@ -48,20 +48,6 @@ class Request
     {
         return $name;
     }
-
-    /**
-     * Split a string by a specific character.
-     *
-     * @param string $char.
-     *
-     * @param string $str.
-     *
-     * @retrun array
-     */
-    private function splitBy($char, $str)
-    {
-        return preg_split("/$char/", $str);
-    }
 }
 
 
