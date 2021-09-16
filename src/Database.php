@@ -22,6 +22,8 @@ class Database
      */
     public function selectAll($table) : mixed
     {
+        if( !is_string($table) ) return false;
+
         $sql = "SELECT * FROM $table";
         $stmt = $this->connection->prepare($sql);
         $result = $stmt->execute();
