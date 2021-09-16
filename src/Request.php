@@ -17,8 +17,6 @@ class Request
         {
             $this->queryString = $_SERVER["QUERY_STRING"];
         }
-
-        dump($this->queryString);
     }
 
     /**
@@ -44,6 +42,25 @@ class Request
     public function __set($name, $value)
     {
         $this->$name = $value;
+    }
+
+    public function __get($name)
+    {
+        return $name;
+    }
+
+    /**
+     * Split a string by a specific character.
+     *
+     * @param string $char.
+     *
+     * @param string $str.
+     *
+     * @retrun array
+     */
+    private function splitBy($char, $str)
+    {
+        return preg_split("/$char/", $str);
     }
 }
 
