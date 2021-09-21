@@ -17,6 +17,8 @@ class Request
         {
             $this->queryString = $_SERVER["QUERY_STRING"];
         }
+
+        dump($this->queryString);
     }
 
     /**
@@ -46,6 +48,7 @@ class Request
 
     public function __get($name)
     {
+        // TODO: Parse query string and return a result if it exits.
         return $name;
     }
 }
