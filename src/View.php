@@ -9,6 +9,8 @@ class View
 {
     public $templatePath = NULL;
 
+    public $templateVariables = [];
+
     /**
      * An array that holds all of the page data for a particular view */
     private $templateVars = [];
@@ -25,8 +27,9 @@ class View
      *
      * @return void.
      */
-    public function render($template)
+    public function render($template, ...$templateVars)
     {
+        $templateVars = extract($templateVars, EXTR_SKIP);
         require_once $this->templatePath . $template . ".php";
     }
 

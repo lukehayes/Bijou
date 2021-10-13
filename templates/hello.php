@@ -7,6 +7,9 @@
 <body>
 
 <p>Hello!</p>
-    
+
+<h4>Data</h4>
+<?php dump($this); ?>
+
 </body>
 </html>
