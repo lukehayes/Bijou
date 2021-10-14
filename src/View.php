@@ -65,7 +65,7 @@ class View
         // the API could be $this->value?.
         if( !empty($value) )
         {
-            echo $value;
+            echo $value . "<br/>";
         }else
         {
             echo "Value Not Set " . __FUNCTION__;
