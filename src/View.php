@@ -19,7 +19,23 @@ class View
     }
 
     /**
-     * Render a template file.
+     * Render a specific template file without header and footer partials.
+     *
+     * @param string $template.
+     *
+     * @param array $templateVars. An array of variables to me made available
+     *                             inside the view template.
+     *
+     * @return void.
+     */
+    public function renderPartial($template, $templateVars = [])
+    {
+        extract($templateVars);
+        require_once $this->templatePath . $template . ".php";
+    }
+
+    /**
+     * Render a template file with default header and footer partials included.
      *
      * @param string $template.
      *
@@ -31,7 +47,9 @@ class View
     public function render($template, $templateVars = [])
     {
         extract($templateVars);
+        $this->renderPartial("partials/header");
         require_once $this->templatePath . $template . ".php";
+        $this->renderPartial("partials/footer");
     }
 
     /**
