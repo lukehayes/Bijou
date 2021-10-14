@@ -23,12 +23,14 @@ class View
      *
      * @param string $template.
      *
+     * @param array $templateVars. An array of variables to me made available
+     *                             inside the view template.
+     *
      * @return void.
      */
-    public function render($template, ...$templateVars)
+    public function render($template, $templateVars = [])
     {
-        extract($templateVars, EXTR_SKIP);
-        dump($data);
+        extract($templateVars);
         require_once $this->templatePath . $template . ".php";
     }
 
