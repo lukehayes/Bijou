@@ -13,7 +13,7 @@ class View
 
     /**
      * An array that holds all of the page data for a particular view */
-    private $templateVars = [];
+    private $viewData = [];
 
     public function __construct()
     {
@@ -29,7 +29,7 @@ class View
      */
     public function render($template, ...$templateVars)
     {
-        $templateVars = extract($templateVars, EXTR_SKIP);
+        $templateVars[0] = extract($templateVars, EXTR_SKIP);
         require_once $this->templatePath . $template . ".php";
     }
 
