@@ -53,6 +53,26 @@ class View
     }
 
     /**
+     * Print a variable out inside a view file.
+     *
+     * @param mixed $value.
+     *
+     * @return void
+     */
+    public function print($value)
+    {
+        // Maybe implement this using __get style method so that
+        // the API could be $this->value?.
+        if( !empty($value) )
+        {
+            echo $value;
+        }else
+        {
+            echo "Value Not Set " . __FUNCTION__;
+        }
+    }
+
+    /**
      * Set a variable so that it is available inside the view.
      *
      * @param string $name    The name of the data.
