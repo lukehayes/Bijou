@@ -46,8 +46,13 @@ class Request
 
     public function __get($name)
     {
-        $this->name = $_POST[$name];
-        return $this->name;
+        if($this->isPost())
+        {
+            // After check for POST, set the $name variable to a property
+            // on the Request class as if it was already defined on it.
+            $this->name = htmlentities(trim($_POST[$name]));
+            return $this->name;
+        }
     }
 }
 
