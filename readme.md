@@ -16,7 +16,6 @@
   <p align="center">
     An incredibly spartan PHP framework designed for builiding MVP ideas quickly.
     <br />
-    ·
     <a href="https://github.com/lukehayes/Bijou/issues">Report Bug</a>
     ·
     <a href="https://github.com/lukehayes/Bijou/issues">Request Features</a>
