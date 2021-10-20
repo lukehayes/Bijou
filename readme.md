@@ -10,7 +10,8 @@ An incredibly spartan framework for Building MVP ideas in PHP.
 
 ### Usage
 
-#### Routing
+##### Routing
+
 Inside your public/index.php
 ```php
 <?php
