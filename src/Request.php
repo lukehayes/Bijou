@@ -17,8 +17,6 @@ class Request
         {
             $this->queryString = $_SERVER["QUERY_STRING"];
         }
-
-        dump($this->queryString);
     }
 
     /**
@@ -41,15 +39,15 @@ class Request
         return $this->method == "POST" ?? false;
     }
 
-    public function __set($name, $value)
-    {
-        $this->$name = $value;
-    }
+    //public function __set($name, $value)
+    //{
+        //$this->$name = $value;
+    //}
 
     public function __get($name)
     {
-        // TODO: Parse query string and return a result if it exits.
-        return $name;
+        $this->name = $_POST[$name];
+        return $this->name;
     }
 }
 
