@@ -77,9 +77,6 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 * PHP - A version should already exist on your system.
-  ```sh
-  npm install npm@latest -g
-  ```
   
 * Composer
   ```sh
