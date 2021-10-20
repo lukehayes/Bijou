@@ -1,8 +1,10 @@
 <?php
-require "vendor/autoload.php";
+require "../vendor/autoload.php";
 
 use MVP\App;
 use MVP\View;
+
+ob_start();
 
 $app = new App;
 
@@ -20,17 +22,17 @@ $app->getRouter()->get("/hello", function($request)
 
 $app->getRouter()->get("/other", function($request)
 {
+    dump($this);
     echo $request->path;
 });
 
-$app->getRouter()->get("/form", function($request)
+$app->getRouter()->get("/signup", function($request)
 {
     $view = new View();
     $view->render('form');
 });
 
+
 $app->getRouter()->post("/form", function($request)
 {
-    dump($request->name);
-    dump($request->age);
 });
