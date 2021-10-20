@@ -11,7 +11,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">Bijou</h3>
+  <h1 align="center">Bijou</h1>
 
   <p align="center">
     An incredibly spartan PHP framework designed for builiding MVP ideas quickly.
