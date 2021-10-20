@@ -5,12 +5,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -58,8 +52,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-%%[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 This project started as a quick and dirty way to develop ideas for the many MVP ideas that I wanted to make and test to see if they where actually good ideas. **Bijou** *only* includes what is necessary (that may change over time) to flesh out an idea. Classes currently included: Router, Session, View, Request, Str, Database, App.
 
@@ -201,7 +193,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+[@lukehayesme](https://twitter.com/lukehayesme) - email@example.com
 
 Project Link: [https://github.com/lukehayes/Bijou](https://github.com/lukehayes/Bijou)
 
@@ -214,7 +206,6 @@ Project Link: [https://github.com/lukehayes/Bijou](https://github.com/lukehayes/
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* [Choose an Open Source License](https://choosealicense.com)
 * [symfony/var-dumper](https://packagist.org/packages/symfony/var-dumper)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
