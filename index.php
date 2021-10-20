@@ -8,7 +8,8 @@ $app = new App;
 
 $app->getRouter()->get("/", function($request)
 {
-    echo $request->path;
+    $view = new View();
+    $view->render('home');
 });
 
 $app->getRouter()->get("/hello", function($request)
