@@ -15,7 +15,7 @@ class View
 
     public function __construct()
     {
-        $this->templatePath = getcwd() ."/templates/";
+        $this->templatePath = dirname(__DIR__) ."/templates/";
     }
 
     /**
