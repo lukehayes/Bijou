@@ -12,9 +12,33 @@ class Container
 
     public function __construct()
     {
-        $this->builder = new ContainerBuilder();
+        $this->initContainer();
     }
 
+    /**
+     * Setup the PHP-DI container and add all of the class definitions.
+     *
+     * @return void
+     */
+    public function initContainer()
+    {
+        $this->builder = new ContainerBuilder();
+
+        $this->builder->addDefinitions([
+            'view'     =>  \DI\Create(View::class),
+            'request'  =>  \DI\Create(Request::class),
+            'session'  =>  \DI\Create(Session::class),
+            'str'      =>  \DI\Create(Str::class),
+            'database' =>  \DI\Create(Database::class),
+            'router'   =>  \DI\Create(Router::class),
+        ]);
+    }
+
+    /**
+     * PHP-DI Contianer getter.
+     *
+     * @return Container
+     */
     public function getContainer()
     {
         return $this->builder->build();
