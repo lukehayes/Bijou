@@ -9,7 +9,8 @@ class Database
 
     public function __construct()
     {
-        $this->connection = new \PDO("sqlite:db.sqlite");
+        $dsn = getcwd() . "/db.sqlite";
+        $this->connection = new \PDO("sqlite:$dsn");
         $this->fetchType = \PDO::FETCH_ASSOC;
     }
 
