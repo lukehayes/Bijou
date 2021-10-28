@@ -39,10 +39,27 @@ class Request
         return $this->method == "POST" ?? false;
     }
 
-    //public function __set($name, $value)
-    //{
-        //$this->$name = $value;
-    //}
+    /**
+     * Get a value from the POST array if defined.
+     *
+     * @param string $name
+     *
+     * @return $name if exists, false otherwise.
+     */
+    public function get($name)
+    {
+        if($this->isPost()) 
+        { 
+            if(array_key_exists($name, $_POST))
+            {
+                return htmlentities(trim($_POST[$name]));
+            }else
+            {
+                return false;
+            }
+        }
+
+    }
 
     public function __get($name)
     {
