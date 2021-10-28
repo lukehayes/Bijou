@@ -1,5 +1,5 @@
 <?php
-namespace MVP;
+namespace Bijou;
 
 use DI\ContainerBuilder;
 

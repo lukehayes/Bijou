@@ -1,5 +1,5 @@
 <?php
-namespace MVP;
+namespace Bijou;
 
 /**
  * Wrapper/abstraction class for a request.

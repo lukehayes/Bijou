@@ -1,5 +1,5 @@
 <?php 
-namespace MVP;
+namespace Bijou;
 
 /**
  * A wrapper class for the SESSION super global with some

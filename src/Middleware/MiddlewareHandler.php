@@ -1,8 +1,8 @@
 <?php
-namespace MVP\Middleware;
+namespace Bijou\Middleware;
 
-use MVP\Middleware\Middleware;
-use MVP\Request;
+use Bijou\Middleware\Middleware;
+use Bijou\Request;
 
 interface MiddlewareHandler
 {

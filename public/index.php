@@ -1,10 +1,8 @@
 <?php
 require "../vendor/autoload.php";
 
-use MVP\App;
-use MVP\View;
-
-ob_start();
+use Bijou\App;
+use Bijou\View;
 
 $app = new App;
 
@@ -22,7 +20,6 @@ $app->getRouter()->get("/hello", function($request)
 
 $app->getRouter()->get("/other", function($request)
 {
-    dump($this);
     echo $request->path;
 });
 

@@ -1,5 +1,5 @@
 <?php
-namespace MVP\Facade;
+namespace Bijou\Facade;
 
 /**
  * Base class all Facades should use.

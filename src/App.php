@@ -1,27 +1,27 @@
 <?php
-namespace MVP;
+namespace Bijou;
 
-use MVP\Request;
-use MVP\Router;
-use MVP\Session;
-use MVP\View;
+use Bijou\Request;
+use Bijou\Router;
+use Bijou\Session;
+use Bijou\View;
 
 class App
 {
     /**
-     * @var MVP\Request instance */
+     * @var Bijou\Request instance */
     private $request = NULL;
 
     /**
-     * @var MVP\Router instance */
+     * @var Bijou\Router instance */
     private $router = NULL;
 
     /**
-     * @var MVP\View instance */
+     * @var Bijou\View instance */
     private $view = NULL;
 
     /**
-     * @var MVP\App instance 
+     * @var Bijou\App instance 
      * @static */
     private static $instance = NULL;
 
@@ -35,7 +35,7 @@ class App
     /**
      * App factory creation function
      *
-     * @return MVP\App
+     * @return Bijou\App
      */
     public static function create() : App
     {

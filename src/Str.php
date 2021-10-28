@@ -1,5 +1,5 @@
 <?php
-namespace MVP;
+namespace Bijou;
 
 /**
  * Helper methods for working with strings.

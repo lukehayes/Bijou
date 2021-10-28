@@ -1,7 +1,7 @@
 <?php
-namespace MVP;
+namespace Bijou;
 
-use MVP\Request;
+use Bijou\Request;
 
 class Router
 {

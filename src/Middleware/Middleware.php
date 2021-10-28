@@ -1,5 +1,5 @@
 <?php
-namespace MVP\Middleware;
+namespace Bijou\Middleware;
 
 class Middleware
 {

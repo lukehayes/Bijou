@@ -1,5 +1,5 @@
 <?php
-namespace MVP;
+namespace Bijou;
 
 /**
  * View is an abstract for a quick and dirty way of
