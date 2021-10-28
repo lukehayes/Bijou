@@ -50,7 +50,7 @@ class Request
         {
             // After check for POST, set the $name variable to a property
             // on the Request class as if it was already defined on it.
-            $this->name = htmlentities(trim($_POST[$name]));
+            $this->$name = htmlentities(trim($_POST[$name]));
             return $this->name;
         }
     }
