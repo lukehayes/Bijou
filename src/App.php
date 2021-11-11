@@ -1,24 +1,13 @@
 <?php
 namespace Bijou;
 
-use Bijou\Request;
-use Bijou\Router;
-use Bijou\Session;
-use Bijou\View;
+use Bijou\Container;
 
 class App
 {
     /**
-     * @var Bijou\Request instance */
-    private $request = NULL;
-
-    /**
-     * @var Bijou\Router instance */
-    private $router = NULL;
-
-    /**
-     * @var Bijou\View instance */
-    private $view = NULL;
+     * @var Bijou\Container instance */
+    private $container = NULL;
 
     /**
      * @var Bijou\App instance 
@@ -27,9 +16,7 @@ class App
 
     public function __construct()
     {
-        $this->router = new Router; 
-        $this->request = new Request; 
-        $this->view = new View; 
+        $this->container = new Container();
     }
 
     /**
@@ -48,9 +35,9 @@ class App
         }
     }
 
-    public function getRouter() : Router
+    public static function getInstance()
     {
-        return $this->router;
+        return self::$instance;
     }
 
     /**
@@ -59,5 +46,14 @@ class App
     public function run()
     {
         dump("Running App...");
+    }
+
+    public function __call($name, $arguments)
+    {
+        // Call to the the PHPDI container specifically.
+        if($name == "container")
+        {
+            return $this->container->getContainer();
+        }
     }
 }
