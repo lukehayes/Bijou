@@ -52,4 +52,12 @@ class App
     {
         return $this->router;
     }
+
+    /**
+     * Start the application.
+     */
+    public function run()
+    {
+        dump("Running App...");
+    }
 }
