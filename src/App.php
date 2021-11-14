@@ -45,7 +45,23 @@ class App
      */
     public function run()
     {
-        dump("Running App...");
+        $router = $this->container()->get('router');
+
+        $router->get("/", function()
+        {
+            $this->container()->get('view')->render('hello');
+        });
+
+        $router->get("/signup", function()
+        {
+            $this->container()->get('view')->render('form');
+        });
+
+        $router->post("/form", function()
+        {
+            dump($this->container()->get('request')->name);
+            dump($this->container()->get('request')->age);
+        });
     }
 
     /**------------------------------------------------------------------------------
