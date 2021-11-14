@@ -5,9 +5,6 @@ use Bijou\Container;
 
 class App
 {
-    /**
-     * @var Bijou\Container instance */
-    private $container = NULL;
 
     /**
      * @var Bijou\App instance 
@@ -16,7 +13,7 @@ class App
 
     public function __construct()
     {
-        $this->container = new Container();
+        //$this->container = new Container();
     }
 
     /**
@@ -45,22 +42,22 @@ class App
      */
     public function run()
     {
-        $router = $this->container()->get('router');
+        $router = $this->container->get('router');
 
         $router->get("/", function()
         {
-            $this->container()->get('view')->render('hello');
+            $this->container->get('view')->render('hello');
         });
 
         $router->get("/signup", function()
         {
-            $this->container()->get('view')->render('form');
+            $this->container->get('view')->render('form');
         });
 
         $router->post("/form", function()
         {
-            dump($this->container()->get('request')->name);
-            dump($this->container()->get('request')->age);
+            dump($this->container->get('request')->name);
+            dump($this->container->get('request')->age);
         });
     }
 
@@ -68,12 +65,13 @@ class App
      * Magic Methods
      ------------------------------------------------------------------------------*/
 
-    public function __call($name, $arguments)
+    public function __get($name) 
     {
         // Call to the the PHPDI container specifically.
         if($name == "container")
         {
-            return $this->container->getContainer();
+            $container = new Container();
+            return $container->getContainer();
         }
     }
 }
