@@ -55,6 +55,17 @@ class Router
     }
 
     /**
+     * Get whether the route is found or not.
+     *
+     * @return bool
+     */
+    public function isRouteFound() : bool
+    {
+        return $this->routeFound;
+    }
+
+
+    /**
      * Redirect the user to a different page.
      *
      * @param string $url
