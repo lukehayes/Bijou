@@ -45,21 +45,32 @@ class App
         $router = $this->container->get('router');
         $view = $this->container->get('view');
 
-        $router->get("/", function()
+        if(!$router->isRouteFound())
         {
-            $this->container->get('view')->render('hello');
-        });
+            $router->get("/", function()
+            {
+                $this->container->get('view')->render('hello');
+            });
 
-        $router->get("/signup", function()
-        {
-            $this->container->get('view')->render('form');
-        });
+            $router->get("/signup", function()
+            {
+                $this->container->get('view')->render('form');
+            });
 
-        $router->post("/form", function()
+            $router->post("/form", function()
+            {
+                dump($this->container->get('request')->name);
+                dump($this->container->get('request')->age);
+            });
+
+            return;
+
+        } else
         {
-            dump($this->container->get('request')->name);
-            dump($this->container->get('request')->age);
-        });
+            $view->renderPartial("error/404");
+            return;
+        }
+
     }
 
     /**------------------------------------------------------------------------------
