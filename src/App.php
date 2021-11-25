@@ -43,6 +43,7 @@ class App
     public function run()
     {
         $router = $this->container->get('router');
+        $view = $this->container->get('view');
 
         $router->get("/", function()
         {
