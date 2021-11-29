@@ -36,8 +36,6 @@ class RouteManager
         ];
 
 
-        //$this->routes[] = "/signup";
-        //$this->routes[] = "/form";
     }
 
     public function getRoutes()
