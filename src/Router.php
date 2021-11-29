@@ -6,7 +6,7 @@ use Bijou\Request;
 class Router
 {
     
-    private $routeFound = false;
+    public $routeFound = false;
 
     /**
      * Define a GET route.

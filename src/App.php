@@ -43,32 +43,30 @@ class App
     public function run()
     {
         $router = $this->container->get('router');
+        $request = $this->container->get('request');
         $view = $this->container->get('view');
+        $routeManager = $this->container->get('routeManager');
 
-        if(!$router->isRouteFound())
+
+        $c = 0;
+        while(!$router->routeFound)
         {
-            $router->get("/", function()
+            if ($c > 3) {
+                $router->routeFound = true;
+            }
+
+            if (array_key_exists($request->path, $routeManager->getRoutes())) 
             {
-                $this->container->get('view')->render('hello');
-            });
-
-            $router->get("/signup", function()
+                $action = $routeManager->getRoutes()[$request->path];
+                $action["action"]($this->container);
+                $router->routeManager = true;
+                break;
+            } else
             {
-                $this->container->get('view')->render('form');
-            });
+                $view->renderPartial("error/404");
+            }
 
-            $router->post("/form", function()
-            {
-                dump($this->container->get('request')->name);
-                dump($this->container->get('request')->age);
-            });
-
-            return;
-
-        } else
-        {
-            $view->renderPartial("error/404");
-            return;
+            $c++;
         }
 
     }
