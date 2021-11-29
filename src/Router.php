@@ -55,7 +55,7 @@ class Router
     }
 
     /**
-     * Get whether the route is found or not.
+     * Has the route been found?
      *
      * @return bool
      */
