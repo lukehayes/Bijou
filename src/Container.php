@@ -31,6 +31,7 @@ class Container
             'str'      =>  \DI\Create(Str::class),
             'database' =>  \DI\Create(Database::class),
             'router'   =>  \DI\Create(Router::class),
+            'routeManager'   =>  \DI\Create(RouteManager::class),
         ]);
     }
 
