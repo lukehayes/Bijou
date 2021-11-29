@@ -34,8 +34,24 @@ class RouteManager
                 dump($container->get('request')->age);
             }
         ];
+    }
 
-
+    /**
+     * Add a new route to the application.
+     *
+     * @param string $path     The path to the resource.
+     * @param string $callback The callback action to run.
+     * @param string $method   The method this route is for - GET or POST
+     *
+     * @return void
+     *
+     */
+    public function addRoute($path,$callback, $method = "GET")
+    {
+        $this->routes[$path] = [
+            "route" => $path,
+            "action" => $callback
+        ];
     }
 
     public function getRoutes()
