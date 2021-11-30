@@ -64,6 +64,14 @@ class Router
         return $this->routeFound;
     }
 
+    /**
+     * Move all of the routing code over to this method eventually.
+     */
+    public function dispatchRoute()
+    {
+        // TODO
+    }
+
 
     /**
      * Redirect the user to a different page.
