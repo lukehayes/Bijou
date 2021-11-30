@@ -34,10 +34,6 @@ class RouteManager
                 dump($container->get('request')->age);
             }
         ];
-
-
-        //$this->routes[] = "/signup";
-        //$this->routes[] = "/form";
     }
 
     public function getRoutes()
