@@ -36,6 +36,24 @@ class RouteManager
         ];
     }
 
+    
+    /**
+     * Add a new route to the available application routes
+     *
+     * @param string $path      The new route path.
+     * @param string $callback  The callback to run.
+     * @param string $method    The method type GET, POST etc.
+     *
+     * @return void
+     */
+    public function addRoute($path, $callback, $method = "GET")
+    {
+        $this->routes[$path] = [
+            "route" => $path,
+            "action" => $callback
+        ];
+    }
+
     public function getRoutes()
     {
         return $this->routes;
