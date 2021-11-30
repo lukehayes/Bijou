@@ -54,7 +54,12 @@ class RouteManager
         ];
     }
 
-    public function getRoutes()
+    /**
+     * Get all of the routes available to the application.
+     *
+     * @return array
+     */
+    public function getRoutes() : array
     {
         return $this->routes;
     }
