@@ -16,7 +16,9 @@
         "psr-4":
         {
             "Bijou\\" : "src/"
-        }
+        },
+
+        "files": ["src/Util.php"]
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
