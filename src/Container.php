@@ -24,15 +24,7 @@ class Container
     {
         $this->builder = new ContainerBuilder();
 
-        $this->builder->addDefinitions([
-            'view'     =>  \DI\Create(View::class),
-            'request'  =>  \DI\Create(Request::class),
-            'session'  =>  \DI\Create(Session::class),
-            'str'      =>  \DI\Create(Str::class),
-            'database' =>  \DI\Create(Database::class),
-            'router'   =>  \DI\Create(Router::class),
-            'routeManager'   =>  \DI\Create(RouteManager::class),
-        ]);
+        $this->builder->addDefinitions(getcwd() . "/../src/DIConfig.php");
     }
 
     /**
