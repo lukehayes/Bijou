@@ -36,6 +36,17 @@ class Container
     }
 
     /**
+     * Disable all of PHPDI settings to create a basic container.
+     *
+     * @return void
+     */
+    public function disableDIConfig()
+    {
+        $this->builder->useAutowiring(false);
+        $this->builder->useAnnotations(false);
+    }
+
+    /**
      * PHP-DI Contianer getter.
      *
      * @return Container
