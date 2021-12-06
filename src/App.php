@@ -6,31 +6,7 @@ use Bijou\Container;
 class App
 {
 
-    /**
-     * @var Bijou\App instance 
-     * @static */
-    private static $instance = NULL;
-
-    public function __construct()
-    {
-        //$this->container = new Container();
-    }
-
-    /**
-     * App factory creation function
-     *
-     * @return Bijou\App
-     */
-    public static function create() : App
-    {
-        if(is_null(self::$instance))
-        {
-            return new App;
-        }else
-        {
-            return self::$instance;
-        }
-    }
+    public $container = NULL;
 
     public static function getInstance()
     {
