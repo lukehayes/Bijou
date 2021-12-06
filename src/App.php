@@ -42,11 +42,10 @@ class App
      */
     public function run()
     {
-        $router = $this->container->get('router');
-        $request = $this->container->get('request');
-        $view = $this->container->get('view');
-        $routeManager = $this->container->get('routeManager');
-
+        $router = $this->container->getContainer()->get('router');
+        $request = $this->container->getContainer()->get('request');
+        $view = $this->container->getContainer()->get('view');
+        $routeManager = $this->container->getContainer()->get('routeManager');
 
         $c = 0;
         while(!$router->routeFound)
