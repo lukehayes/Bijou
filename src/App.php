@@ -8,9 +8,9 @@ class App
 
     public $container = NULL;
 
-    public static function getInstance()
+    public function __construct(Container $container)
     {
-        return self::$instance;
+        $this->container = $container;
     }
 
     /**
