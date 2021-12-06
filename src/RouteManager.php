@@ -14,7 +14,7 @@ class RouteManager
             "route" => "/",
             "action" => function($container)
             {
-                $container->get('view')->render('hello');
+                $container->getContainer()->get('view')->render('hello');
             }
         ];
 
@@ -22,7 +22,7 @@ class RouteManager
             "route" => "/signup",
             "action" => function($container)
             {
-                $container->get('view')->render('form');
+                $container->getContainer()->get('view')->render('form');
             }
         ];
 
@@ -30,8 +30,8 @@ class RouteManager
             "route" => "/form",
             "action" => function($container)
             {
-                dump($container->get('request')->name);
-                dump($container->get('request')->age);
+                dump($container->getContainer()->get('request')->name);
+                dump($container->getContainer()->get('request')->age);
             }
         ];
     }
