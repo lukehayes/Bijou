@@ -1,5 +1,6 @@
 <?php
 require "../vendor/autoload.php";
 
-$app = Bijou\App::create();
+$container = new Bijou\Container();
+$app = new Bijou\App($container);
 $app->run();

@@ -45,18 +45,4 @@ class App
         }
 
     }
-
-    /**------------------------------------------------------------------------------
-     * Magic Methods
-     ------------------------------------------------------------------------------*/
-
-    public function __get($name) 
-    {
-        // Call to the the PHPDI container specifically.
-        if($name == "container")
-        {
-            $container = new Container();
-            return $container->getContainer();
-        }
-    }
 }
