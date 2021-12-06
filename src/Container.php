@@ -8,7 +8,17 @@ use DI\ContainerBuilder;
  */
 class Container
 {
+    /**
+     * Instance of PHPDI Builder
+     * @var
+     */
     private $builder = NULL;
+
+    /**
+     * Instance of PHPDI Container
+     * @var
+     */
+    private $container = NULL;
 
     public function __construct()
     {
@@ -25,6 +35,7 @@ class Container
         $this->builder = new ContainerBuilder();
 
         $this->builder->addDefinitions(getcwd() . "/../src/DIConfig.php");
+        $this->container = $this->builder->build();
     }
 
     /**
@@ -45,7 +56,7 @@ class Container
      */
     public function getContainer()
     {
-        return $this->builder->build();
+        return $this->container;
     }
 }
 
