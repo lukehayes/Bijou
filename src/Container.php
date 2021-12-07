@@ -58,5 +58,25 @@ class Container
     {
         return $this->container;
     }
+
+    /**
+     * Get a service from the contianer.
+     *
+     * @param string $service
+     *
+     * @throws Exception
+     *
+     * @return mixed
+     */
+    public function getService($service) : mixed
+    {
+        if($this->getContainer()->has($service))
+        {
+           return $this->getContainer()->get($service);
+        }else
+        {
+            throw new \Exception("Service {$service} Not Found.");
+        }
+    }
 }
 
