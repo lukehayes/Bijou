@@ -18,10 +18,10 @@ class App
      */
     public function run()
     {
-        $router = $this->container->getContainer()->get('router');
-        $request = $this->container->getContainer()->get('request');
-        $view = $this->container->getContainer()->get('view');
-        $routeManager = $this->container->getContainer()->get('routeManager');
+        $router = $this->container->getService('router');
+        $request = $this->container->getService('request');
+        $view = $this->container->getService('view');
+        $routeManager = $this->container->getService('routeManager');
 
         $c = 0;
         while(!$router->routeFound)
