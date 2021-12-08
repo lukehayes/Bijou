@@ -14,7 +14,7 @@ class RouteManager
             "route" => "/",
             "action" => function($container)
             {
-                $container->getContainer()->get('view')->render('hello');
+                $container->getService('view')->render('hello');
             }
         ];
 
@@ -22,7 +22,7 @@ class RouteManager
             "route" => "/signup",
             "action" => function($container)
             {
-                $container->getContainer()->get('view')->render('form');
+                $container->getService('view')->render('form');
             }
         ];
 
