@@ -23,6 +23,8 @@ class App
         $view = $this->container->getService('view');
         $routeManager = $this->container->getService('routeManager');
 
+        $routes = $routeManager->getRoutes();
+
         $c = 0;
         while(!$router->routeFound)
         {
@@ -32,8 +34,13 @@ class App
 
             if (array_key_exists($request->path, $routeManager->getRoutes())) 
             {
-                $action = $routeManager->getRoutes()[$request->path];
-                $action["action"]($this->container);
+                $route = $routeManager->getRoutes()[$request->path];
+
+                $controller = new $route["controller"];
+                $action = $route["action"];
+
+                $controller->$action();
+
                 $router->routeManager = true;
                 break;
             } else
