@@ -16,7 +16,8 @@
     {
         "psr-4":
         {
-            "Bijou\\" : "src/"
+            "Bijou\\" : "src/",
+            "App\\" : "app/"
         },
 
         "files": ["src/Util.php"]
