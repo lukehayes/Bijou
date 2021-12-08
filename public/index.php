@@ -1,6 +1,9 @@
 <?php
 require "../vendor/autoload.php";
 
-$container = new Bijou\Container();
-$app = new Bijou\App($container);
-$app->run();
+$response = new Bijou\Response();
+
+dd($response);
+
+$response->send();
+
