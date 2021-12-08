@@ -4,14 +4,11 @@ namespace Bijou;
 class Response
     extends \Symfony\Component\HttpFoundation\Response
 {
-    public function __construct()
+    public function __construct($responseText)
     {
-        $this->setContent('Hello World');
-        // the headers public attribute is a ResponseHeaderBag
-
-        dd($this);
-
-        $this->headers->set('Content-Type', 'text/plain');
+        parent::__construct($responseText);
+        $this->setContent($responseText);
+        $this->headers->set('Content-Type', 'text/html');
         //$this->setStatusCode(Response::HTTP_NOT_FOUND);
     }
 }
