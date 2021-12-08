@@ -12,6 +12,11 @@ class Route
     private $path = NULL;
 
     /**
+     * @var string The controller class to relate to the path.
+     */
+    private $controller = NULL;
+
+    /**
      * @var string The action to relate to the path.
      */
     private $action = NULL;
@@ -21,9 +26,10 @@ class Route
      */
     private $method;
 
-    public function __construct(string $path, $action, $method = "GET")
+    public function __construct(string $path, $controller, $action, $method = "GET")
     {
         $this->path = $path;
+        $this->controller = $controller;
         $this->action = $action;
         $this->method = $method;
     }
@@ -47,6 +53,16 @@ class Route
     public function getAction()
     {
         return $this->action;
+    }
+
+    /**
+     * Controller getter.
+     *
+     * @return string The path.
+     */
+    public function getController()
+    {
+        return $this->controller;
     }
 
     /**

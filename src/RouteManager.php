@@ -27,7 +27,9 @@ class RouteManager
     {
         $this->routes[$route->getPath()] = [
             "route" => $route->getPath(),
-            "action" => $route->getAction()
+            "controller" => $route->getController(),
+            "action" => $route->getAction(),
+            "method" => $route->getMethod()
         ];
     }
 
