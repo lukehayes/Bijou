@@ -1,6 +1,8 @@
 <?php
 namespace Bijou;
 
+use Bijou\Route;
+
 /**
  * A single place to store all of the routes used in the application.
  */
@@ -10,33 +12,8 @@ class RouteManager
 
     public function __construct()
     {
-        $this->routes["/"] = [
-            "route" => "/",
-            "action" => function($container)
-            {
-                $container->getService('view')->render('hello');
-            }
-        ];
-
-        $this->routes["/signup"] = [
-            "route" => "/signup",
-            "action" => function($container)
-            {
-                $container->getService('view')->render('form');
-            }
-        ];
-
-        $this->routes["/form"] = [
-            "route" => "/form",
-            "action" => function($container)
-            {
-                dump($container->getContainer()->get('request')->name);
-                dump($container->getContainer()->get('request')->age);
-            }
-        ];
     }
 
-    
     /**
      * Add a new route to the available application routes
      *
@@ -46,11 +23,11 @@ class RouteManager
      *
      * @return void
      */
-    public function addRoute($path, $callback, $method = "GET")
+    public function addRoute(Route $route)
     {
-        $this->routes[$path] = [
-            "route" => $path,
-            "action" => $callback
+        $this->routes[$route->getPath()] = [
+            "route" => $route->getPath(),
+            "action" => $route->getAction()
         ];
     }
 
