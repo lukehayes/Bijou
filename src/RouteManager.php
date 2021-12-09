@@ -25,12 +25,7 @@ class RouteManager
      */
     public function addRoute(Route $route)
     {
-        $this->routes[$route->getPath()] = [
-            "route" => $route->getPath(),
-            "controller" => $route->getController(),
-            "action" => $route->getAction(),
-            "method" => $route->getMethod()
-        ];
+        $this->routes[$route->getPath()] = $route;
     }
 
     /**
