@@ -37,5 +37,25 @@ class RouteManager
     {
         return $this->routes;
     }
+
+    /**
+     * Get a specific Route object if its available
+     *
+     * @param string $path    The path that applies to a specific route.
+     *
+     * @throws Exception.
+     *
+     * @return Route.
+     */
+    public function getRoute(string $path) : mixed
+    {
+        if(array_key_exists($path, $this->routes))
+        {
+            return $this->routes[$path];
+        }else
+        {
+            throw new \Exception("Route for {$path} could not be found");
+        }
+    }
 }
 
