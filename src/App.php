@@ -32,13 +32,10 @@ class App
                 $router->routeFound = true;
             }
 
-            if (array_key_exists($request->path, $routeManager->getRoutes())) 
+            if ( $route = ($routeManager->getRoute($request->path))) 
             {
-                $route = $routeManager->getRoutes()[$request->path];
-
-                $controller = new $route["controller"];
-                $action = $route["action"];
-
+                $controller = new ($route->getController());
+                $action = $route->getAction();
                 $controller->$action();
 
                 $router->routeManager = true;
