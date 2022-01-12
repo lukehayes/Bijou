@@ -1,6 +1,7 @@
 <?php
 namespace Bijou;
 
+use Bijou\Helpers\Sanitizer;
 /**
  * Wrapper/abstraction class for a request.
  */
@@ -52,7 +53,7 @@ class Request
         { 
             if(array_key_exists($name, $_POST))
             {
-                return htmlentities(trim($_POST[$name]));
+                return Sanitizer::removeMarkupChars($_POST[$name]);
             }else
             {
                 return false;
