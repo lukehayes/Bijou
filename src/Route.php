@@ -26,12 +26,19 @@ class Route
      */
     private $method;
 
+    /**
+     * @var string The METHOD to relate to the path.
+     */
+    private $request;
+
     public function __construct(string $path, $controller, $action, $method = "GET")
     {
         $this->path = $path;
         $this->controller = $controller;
         $this->action = $action;
         $this->method = $method;
+
+        $this->request = new Request();
     }
 
 
@@ -73,6 +80,20 @@ class Route
     public function getMethod() : string
     {
         return $this->method;
+    }
+
+    /**
+     * Get the request for the current route.
+     *
+     * @param Request $request.
+     *
+     * @return The request for the current route.
+     */
+    public function getRequest() : Request
+    {
+        // Todo Really horrible - will abstract this later.
+        //
+        return $this->request;
     }
 
 }
