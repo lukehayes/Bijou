@@ -2,10 +2,10 @@
 namespace Bijou;
 
 use Bijou\Container;
+use App\Controllers\HomeController;
 
 class App
 {
-
     public $container = NULL;
 
     public function __construct(Container $container)
@@ -22,6 +22,9 @@ class App
         $request = $this->container->getService('request');
         $view = $this->container->getService('view');
         $routeManager = $this->container->getService('routeManager');
+
+        // TODO Abstract routes out completely.
+        $routeManager->addRoute(new Route("/", HomeController::class, "index"));
 
         $routes = $routeManager->getRoutes();
 
