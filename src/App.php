@@ -11,6 +11,7 @@ class App
     public function __construct(Container $container)
     {
         $this->container = $container;
+        $this->addRoutes();
     }
 
     /**
@@ -51,5 +52,13 @@ class App
             $c++;
         }
 
+    /**
+     * Add all the routes available to the application from this method.
+     */
+    private function addRoutes()
+    {
+        // TODO Horrible solution but its a start.
+        $routeManager = $this->container->getService('routeManager');
+        $routeManager->addRoute(new Route("/", HomeController::class, "index"));
     }
 }
