@@ -51,6 +51,7 @@ class App
 
             $c++;
         }
+    }
 
     /**
      * Add all the routes available to the application from this method.
