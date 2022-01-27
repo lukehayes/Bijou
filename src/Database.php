@@ -11,7 +11,7 @@ class Database
     {
         $dsn = getcwd() . "/db.sqlite";
         $this->connection = new \PDO("sqlite:$dsn");
-        $this->fetchType = \PDO::FETCH_ASSOC;
+        $this->fetchType = \PDO::FETCH_OBJ;
     }
 
     /**
