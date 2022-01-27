@@ -85,4 +85,16 @@ class View
         $this->$name = $value;
     }
 
+    /**
+     * Get a variable set with the 'set' method and echo it.
+     *
+     * @param string $name    The name of the data.
+     *
+     * @return void
+     */
+    public function get(string $name) : void
+    {
+        echo $this->$name;
+    }
+
 }

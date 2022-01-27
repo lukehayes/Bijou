@@ -7,6 +7,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        dump("Class Loaded");
+        $view = new \Bijou\View();
+        $view->set("title", "Home");
+        $view->render('home');
     }
 }
