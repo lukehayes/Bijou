@@ -25,8 +25,8 @@ class Database
     {
         if( !is_string($table) ) return false;
 
-        $sql = "SELECT * FROM $table";
-        $stmt = $this->connection->prepare($sql);
+        $query = new \Bijou\Query;
+        $stmt = $this->connection->prepare($query->selectAllFrom($table));
         $result = $stmt->execute();
 
         if($result)
