@@ -22,37 +22,25 @@ class App
      */
     public function run()
     {
-
         $this->eventManager->runEvent('run');
         $router = $this->container->getService('router');
         $request = $this->container->getService('request');
-        $view = $this->container->getService('view');
         $routeManager = $this->container->getService('routeManager');
 
-        // Set the routes from a specific routes file.
-        $routeManager->setRoutesFromFile("Routes.php");
-
-        $c = 0;
-        while(!$router->routeFound)
+        while(!$router->isRouteFound())
         {
-            if ($c > 3) {
-                $router->routeFound = true;
-            }
-
-            if ( $route = ($routeManager->getRoute($request->path))) 
+            foreach($routeManager->getRoutes() as $route)
             {
-                $controller = new ($route->getController());
-                $action = $route->getAction();
-                $controller->$action();
+                if($request->path == $route->getPath()) {
+                    $controller = $route->getController();
+                    $action = $route->getAction();
+                    $controller->$action();
+                    $router->routeFound = true;
+                    break;
+                }
 
-                $router->routeManager = true;
-                break;
-            } else
-            {
-                $view->renderPartial("error/404");
+                // TODO Need to check case where route isn't defined!
             }
-
-            $c++;
         }
 
         $this->eventManager->runEvent('shutdown');
@@ -64,7 +52,9 @@ class App
     private function addRoutes()
     {
         // TODO Horrible solution but its a start.
+        
+        // Set the routes from a specific routes file.
         $routeManager = $this->container->getService('routeManager');
-        $routeManager->addRoute(new Route("/", HomeController::class, "index"));
+        $routeManager->setRoutesFromFile("routes.php");
     }
 }

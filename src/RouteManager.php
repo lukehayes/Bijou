@@ -15,6 +15,16 @@ class RouteManager
     }
 
     /**
+     * Load pre-defined routes from a file in the public/ directory.
+     *
+     * @return void
+     */
+    public function setRoutesFromFile($routesFile)
+    {
+        $this->routes = include getcwd() . "/" . $routesFile;
+    }
+
+    /**
      * Add a new route to the available application routes
      *
      * @param string $path      The new route path.
