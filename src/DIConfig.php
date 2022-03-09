@@ -8,4 +8,5 @@ return [
     'database' =>  \DI\Create(Bijou\Database::class),
     'router'   =>  \DI\Create(Bijou\Router::class),
     'routeManager'   =>  \DI\Create(Bijou\RouteManager::class),
+    'eventManager'   =>  \DI\Create(Bijou\Event\EventManager::class),
 ];
