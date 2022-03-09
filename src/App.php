@@ -29,10 +29,8 @@ class App
         $view = $this->container->getService('view');
         $routeManager = $this->container->getService('routeManager');
 
-        // TODO Abstract routes out completely.
-        $routeManager->addRoute(new Route("/", HomeController::class, "index"));
-
-        $routes = $routeManager->getRoutes();
+        // Set the routes from a specific routes file.
+        $routeManager->setRoutesFromFile("Routes.php");
 
         $c = 0;
         while(!$router->routeFound)
