@@ -7,6 +7,9 @@ class EventManager
 
     public function __construct()
     {
+        $this->events['init'] = [];
+        $this->events['run'] = [];
+        $this->events['shutdown'] = [];
     }
 
     /**
@@ -32,6 +35,22 @@ class EventManager
             foreach($eventName as $event)
             {
                 $event();
+            }
+        }
+    }
+
+    /**
+     * Run all the events from a specific type.
+     *
+     * @param string $event    The name of the event to run.
+     */
+    public function runEvent(string $event)
+    {
+        if(array_key_exists($event, $this->events))
+        {
+            foreach($this->events[$event] as $e)
+            {
+                $e();
             }
         }
     }
