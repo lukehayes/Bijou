@@ -7,11 +7,14 @@ use App\Controllers\HomeController;
 class App
 {
     public $container = NULL;
+    public $eventManager = NULL;
 
     public function __construct(Container $container)
     {
         $this->container = $container;
+        $this->eventManager = $this->container->getService('eventManager');
         $this->addRoutes();
+        $this->eventManager->runEvent('init');
     }
 
     /**
@@ -19,6 +22,8 @@ class App
      */
     public function run()
     {
+
+        $this->eventManager->runEvent('run');
         $router = $this->container->getService('router');
         $request = $this->container->getService('request');
         $view = $this->container->getService('view');
@@ -51,6 +56,8 @@ class App
 
             $c++;
         }
+
+        $this->eventManager->runEvent('shutdown');
     }
 
     /**
