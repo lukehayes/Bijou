@@ -65,11 +65,11 @@ class Route
     /**
      * Controller getter.
      *
-     * @return string The path.
+     * @return object An instance of the controller class.
      */
-    public function getController()
+    public function getController() : object
     {
-        return $this->controller;
+        return new $this->controller;
     }
 
     /**
