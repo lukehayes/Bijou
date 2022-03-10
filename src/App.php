@@ -8,6 +8,7 @@ class App
 {
     public $container = NULL;
     public $eventManager = NULL;
+    public $routeManager = NULL;
 
     public function __construct(Container $container)
     {
@@ -15,6 +16,8 @@ class App
         $this->eventManager = $this->container->getService('eventManager');
         $this->addRoutes();
         $this->eventManager->runEvent('init');
+        $this->routeManager = $this->container->getService('routeManager');
+        $this->routeManager->setContainer($this->container);
     }
 
     /**
@@ -23,26 +26,8 @@ class App
     public function run()
     {
         $this->eventManager->runEvent('run');
-        $router = $this->container->getService('router');
-        $request = $this->container->getService('request');
         $routeManager = $this->container->getService('routeManager');
-
-        while(!$router->isRouteFound())
-        {
-            foreach($routeManager->getRoutes() as $route)
-            {
-                if($request->path == $route->getPath()) {
-                    $controller = $route->getController();
-                    $action = $route->getAction();
-                    $controller->$action();
-                    $router->routeFound = true;
-                    break;
-                }
-
-                // TODO Need to check case where route isn't defined!
-            }
-        }
-
+        $routeManager->dispatch();
         $this->eventManager->runEvent('shutdown');
     }
 
@@ -52,7 +37,6 @@ class App
     private function addRoutes()
     {
         // TODO Horrible solution but its a start.
-        
         // Set the routes from a specific routes file.
         $routeManager = $this->container->getService('routeManager');
         $routeManager->setRoutesFromFile("routes.php");

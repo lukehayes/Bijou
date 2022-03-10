@@ -8,6 +8,8 @@ use Bijou\Route;
  */
 class RouteManager
 {
+    use Traits\AppHelperTrait;
+
     private $routes = [];
 
     public function __construct()
@@ -65,6 +67,38 @@ class RouteManager
         }else
         {
             throw new \Exception("Route for {$path} could not be found");
+        }
+    }
+
+    /**
+     * Load the correct path/action etc
+     */
+    public function dispatch()
+    {
+        $router = $this->container->getService('router');
+        $routeManager = $this->container->getService('routeManager');
+        $request = $this->container->getService('request');
+
+        $counter = 0;
+        while(!$router->isRouteFound())
+        {
+            foreach($routeManager->getRoutes() as $route)
+            {
+                if($request->path == $route->getPath()) {
+                    $controller = $route->getController();
+                    $action = $route->getAction();
+                    $controller->$action();
+                    $router->routeFound = true;
+
+                    break;
+                }else if( $counter == count($routeManager->getRoutes()))
+                {
+                    throw new \Exception("No Route Found");
+                }
+                // TODO Need to check case where route isn't defined!
+
+            }
+            $counter++;
         }
     }
 }
