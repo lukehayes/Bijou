@@ -27,7 +27,14 @@ class App
     {
         $this->eventManager->runEvent('run');
         $routeManager = $this->container->getService('routeManager');
-        $routeManager->dispatch();
+
+        try
+        {
+            $routeManager->dispatch();
+        }catch(\Exception $e)
+        {
+            echo $e->getMessage() . " On Line: " . $e->getLine() . " of file: " . $e->getFile();
+        }
         $this->eventManager->runEvent('shutdown');
     }
 

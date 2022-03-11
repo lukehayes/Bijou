@@ -93,7 +93,7 @@ class RouteManager
                     break;
                 }else if( $counter == count($routeManager->getRoutes()))
                 {
-                    throw new \Exception("No Route Found");
+                    throw new \Exception("Route dispatch failed for {$request->path} could not be found");
                 }
                 // TODO Need to check case where route isn't defined!
 
