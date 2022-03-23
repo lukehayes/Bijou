@@ -7,7 +7,7 @@ use Bijou\Helpers\Sanitizer;
  */
 class Request
 {
-    public $path = NULL;
+    private $path = NULL;
 
     public function __construct()
     {
@@ -71,6 +71,14 @@ class Request
             $this->name = htmlentities(trim($_POST[$name]));
             return $this->name;
         }
+    }
+
+    /**
+     * Getter for $_SERVER['REQUEST_URI']
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }
 
