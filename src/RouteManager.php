@@ -12,10 +12,6 @@ class RouteManager
 
     private $routes = [];
 
-    public function __construct()
-    {
-    }
-
     /**
      * Load pre-defined routes from a file in the public/ directory.
      *
