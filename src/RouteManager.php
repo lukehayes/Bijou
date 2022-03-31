@@ -47,6 +47,16 @@ class RouteManager
     }
 
     /**
+     * Get the total number of routes available.
+     *
+     * @return int
+     */
+    public function getRouteCount() : int
+    {
+        return count($this->routes);
+    }
+
+    /**
      * Get a specific Route object if its available
      *
      * @param string $path    The path that applies to a specific route.
