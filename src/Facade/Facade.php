@@ -8,7 +8,8 @@ class Facade
 {
     public static function __callStatic($name, $args = null)
     {
-        $cls = new (static::class::getFacadeAccessor());
+        $facadeCls = new (static::class);
+        $cls = new ($facadeCls::getFacadeAccessor());
         return $cls->$name($args);
     }
 
